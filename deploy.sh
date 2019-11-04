@@ -7,7 +7,7 @@ cd h2y
 rm -rf ./*
 
 wget https://raw.githubusercontent.com/h2y/Shadowrocket-ADBlock-Rules/master/sr_direct_banad.conf
-cat sr_direct_banad.conf | grep Reject | grep DOMAIN-SUFFIX | awk -F, '{print $2}' | awk '{sub("^\.*","");print}' > ad
+cat sr_direct_banad.conf | grep Reject | grep DOMAIN-SUFFIX | awk -F, '{print $2}' | sed 's/^\.//g' > ad
 #cat sr_direct_banad.conf | grep Reject|grep CIDR|awk -F, '{print $2}' > ad_ip
 rm -rf ./sr_direct_banad.conf
 #ls -al
